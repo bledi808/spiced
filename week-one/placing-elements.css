@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: white;
+    height: 40px;
+    width: 100vw%;
+}
+
+#logo img {
+    height: 40px;
+    width: 200px;
+    padding: 4px;
+    float: left;
+}
+
+#menu img {
+    height: 40px;
+    width: 40px;
+    padding: 4px;
+    float: right;
+}
+
+#mainimage img {
+    height: 40vw;
+    width: 100%;
+    position: relative;
+}
