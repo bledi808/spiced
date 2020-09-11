@@ -1,21 +1,19 @@
 * {
     box-sizing: border-box;
-    background-color: whitesmoke;
+    margin: 0;
 }
 
 header {
     background-color: white;
     height: 40px;
     width: 100vw%;
-    display: block;
 }
 
 #logo img {
     height: 40px;
-    width: 200px;
+    width: auto;
     padding: 4px;
     float: left;
-    display: inline-block;
     background-color: white;
 }
 
@@ -24,26 +22,103 @@ header {
     width: 40px;
     padding: 4px;
     float: right;
-    display: inline-block;
     background-color: white;
 }
 
-.mainimage img {
-    height: 45vw;
+main img {
     width: 100%;
-    z-index: 1;
-    display: inline-block;
-    position: absolute;
+    height: auto;
+    position: relative;
+    vertical-align: bottom;
 }
 
-.mainimage .title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    position: absolute;
+h3 {
+    font-family: Geneva;
+    font-size: 32px;
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
-    display: inline-block;
-    color: tomato;
+    background-color: transparent;
+    color: white;
+    font-style: italic;
+    position: absolute;
     z-index: 10;
 }
+
+button {
+    position: absolute;
+    top: 57%;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: yellow;
+    border: 4px solid orange;
+    border-radius: 50px;
+    color: orange;
+    font-size: 16px;
+    font-style: bold;
+    box-sizing: content-box;
+    padding: 4px 24px;
+    height: auto;
+}
+
+.container {
+    background-color: lightgrey;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.firstbox {
+    width: 50%;
+    display: inline;
+    position: relative;
+    background-color: red;
+}
+
+
+
+.secondbox {
+    width: 50%;
+    display: inline;
+        position: relative;
+}
+
+h4 {
+    font-size: 32px;
+    font-style: bold;
+}
+
+p {
+    font-size: 18px;
+}
+
+.icon {
+    width: 50px;
+}
+/* 
+.best {
+    position: relative;
+    padding: 30px 60px;
+}
+
+.bestcopy {
+    position: relative;
+    top: 50%;
+    left: 0;
+}
+
+.acquired {
+    position: relative;
+    display: inline;
+}
+
+.reliable {
+    position: absolute;
+    display: inline;
+}
+
+.limits {
+    position: absolute;
+    display: inline;
+} */ */
