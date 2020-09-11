@@ -6,23 +6,22 @@
 header {
     background-color: white;
     height: 40px;
-    width: 100vw%;
+    width: 100vw;
 }
 
 #logo img {
     height: 40px;
     width: auto;
-    padding: 4px;
     float: left;
-    background-color: white;
+    padding: 4px;
+    margin-top: 2px;
 }
 
 #menu img {
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: auto;
     padding: 4px;
     float: right;
-    background-color: white;
 }
 
 main img {
@@ -62,14 +61,7 @@ button {
     height: auto;
 }
 
-.container {
-    background-color: lightgrey;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-}
-
-footer {
+section {
     background-color: lightgrey;
     position: relative;
     width: 100%;
@@ -79,53 +71,63 @@ footer {
     width: 50%;
     display: inline-block;
     position: absolute;
-    background-color: lightskyblue;
+    padding: 20px 0px 10px 150px;
+    background-color: lightgrey;
 }
 
 .secondbox {
     width: 50%;
-    position: absolute;
-    background-color: tomato;
     display: inline-block;
+    position: absolute;
+    background-color: lightgrey;
     right: 0;
     top: 0;
+    padding: 20px 0px 10px 0px;
 }
 
-.firstbox .firstcolumn {
-    padding: 10px 0px 30px 50px;
-    position: relative;
-}
-/* 
-.secondcolumn {
-    display: block;
-    padding: 30px 60px;
-
-} */
-
-/* .bestcopy {
-    position: relative;
-    top: 50%;
-    left: 0;
-}
-
-
-.reliable {
+#cat {
     position: absolute;
-    display: inline;
+    left: 90px;
 }
 
-.limits {
+#swim {
     position: absolute;
-    display: inline;
-} */
+    left: 90px;
+    margin-top: 20px;
+}
+
+#swimcopy {
+    margin-top: 20px;
+}
+
+#world {
+    position: absolute;
+}
+
+#columns {
+    position: absolute;
+    margin-top: 20px;
+}
+
+#worldcopy {
+    position: relative;
+    left: 60px;
+}
+
+#columnscopy {
+    position: relative;
+    left: 60px;
+    margin-top: 20px;
+}
 
 h4 {
-    font-size: 32px;
+    font-size: 27px;
     font-style: bold;
+    color: black;
 }
 
 p {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .icon {
