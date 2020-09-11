@@ -69,20 +69,55 @@ button {
     width: 100%;
 }
 
-.firstbox {
-    width: 50%;
-    display: inline;
+footer {
+    background-color: lightgrey;
     position: relative;
-    background-color: red;
+    width: 100%;
 }
 
-
+.firstbox {
+    width: 50%;
+    display: inline-block;
+    position: absolute;
+    background-color: lightskyblue;
+}
 
 .secondbox {
     width: 50%;
-    display: inline;
-        position: relative;
+    position: absolute;
+    background-color: tomato;
+    display: inline-block;
+    right: 0;
+    top: 0;
 }
+
+.firstbox .firstcolumn {
+    padding: 10px 0px 30px 50px;
+    position: relative;
+}
+/* 
+.secondcolumn {
+    display: block;
+    padding: 30px 60px;
+
+} */
+
+/* .bestcopy {
+    position: relative;
+    top: 50%;
+    left: 0;
+}
+
+
+.reliable {
+    position: absolute;
+    display: inline;
+}
+
+.limits {
+    position: absolute;
+    display: inline;
+} */
 
 h4 {
     font-size: 32px;
@@ -96,29 +131,3 @@ p {
 .icon {
     width: 50px;
 }
-/* 
-.best {
-    position: relative;
-    padding: 30px 60px;
-}
-
-.bestcopy {
-    position: relative;
-    top: 50%;
-    left: 0;
-}
-
-.acquired {
-    position: relative;
-    display: inline;
-}
-
-.reliable {
-    position: absolute;
-    display: inline;
-}
-
-.limits {
-    position: absolute;
-    display: inline;
-} */ */
