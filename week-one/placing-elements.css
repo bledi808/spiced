@@ -3,27 +3,35 @@
     margin: 0;
 }
 
+body {
+    background-color: lightblue;
+}
+
 header {
     background-color: white;
-    height: 40px;
+    height: 50px;
+    width: 100%;
 }
 
 #logo img {
     height: 40px;
     width: auto;
     float: left;
-    padding: 4px;
-    margin-top: 2px;
+    margin: 4px 0px 4px 4px;
 }
 
 #menu img {
-    height: 45px;
+    height: 50px;
     width: auto;
     padding: 4px;
     float: right;
 }
 
-main img {
+#mainimage {
+    position: relative;
+}
+
+main div img {
     width: 100%;
     height: auto;
     position: relative;
@@ -33,20 +41,19 @@ main img {
 h3 {
     font-family: Geneva;
     font-size: 32px;
-    top: 50%;
+    top: 47%;
     left: 50%;
     transform: translateX(-50%);
     background-color: transparent;
     color: white;
     font-style: italic;
     position: absolute;
-    z-index: 10;
+    z-index: 100;
 }
 
 button {
     position: absolute;
-    top: 57%;
-    z-index: 10;
+    top: 55%;
     left: 50%;
     transform: translateX(-50%);
     background-color: yellow;
@@ -67,7 +74,6 @@ section {
 
 .firstbox {
     width: 50%;
-    /* display: inline-block; */
     position: absolute;
     padding: 20px 0px 10px 150px;
     background-color: lightgrey;
@@ -75,7 +81,6 @@ section {
 
 .secondbox {
     width: 50%;
-    /* display: inline-block; */
     position: absolute;
     background-color: lightgrey;
     right: 0;
@@ -123,4 +128,34 @@ h4 {
 
 p {
     font-size: 16px;
+}
+
+@media screen and (max-width: 400px) {
+    /* main img {
+        width: 400px;
+        height: auto;
+    } */
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: grey;
+        color: antiquewhite;
+    }
+    header {
+        background-color: grey;
+        color: antiquewhite;
+    }
+    #menu img {
+        background-color: grey;
+    }
+    .firstbox {
+        background-color: grey;
+    }
+    .secondbox {
+        background-color: grey;
+    }
+    p {
+        color: white;
+    }
 }
