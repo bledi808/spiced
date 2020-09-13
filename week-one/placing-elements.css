@@ -6,7 +6,6 @@
 header {
     background-color: white;
     height: 40px;
-    width: 100vw;
 }
 
 #logo img {
@@ -62,14 +61,13 @@ button {
 }
 
 section {
-    background-color: lightgrey;
     position: relative;
     width: 100%;
 }
 
 .firstbox {
     width: 50%;
-    display: inline-block;
+    /* display: inline-block; */
     position: absolute;
     padding: 20px 0px 10px 150px;
     background-color: lightgrey;
@@ -77,21 +75,23 @@ section {
 
 .secondbox {
     width: 50%;
-    display: inline-block;
+    /* display: inline-block; */
     position: absolute;
     background-color: lightgrey;
     right: 0;
-    top: 0;
     padding: 20px 0px 10px 0px;
 }
 
-#cat {
+.icon {
+    width: 50px;
     position: absolute;
+}
+
+#cat {
     left: 90px;
 }
 
 #swim {
-    position: absolute;
     left: 90px;
     margin-top: 20px;
 }
@@ -100,12 +100,7 @@ section {
     margin-top: 20px;
 }
 
-#world {
-    position: absolute;
-}
-
 #columns {
-    position: absolute;
     margin-top: 20px;
 }
 
@@ -128,8 +123,4 @@ h4 {
 
 p {
     font-size: 16px;
-}
-
-.icon {
-    width: 50px;
 }
