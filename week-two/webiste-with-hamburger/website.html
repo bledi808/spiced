@@ -27,59 +27,54 @@
             </div>
         </main>
         <section>
-            <div class="firstbox">
-                <img src="cat.svg" alt="" class="icon" id="cat" />
-                <div id="catcopy"></div>
-                <div>
-                    <h4>Best in class features</h4>
-                    <p>
-                        Nobody does this stuff better than us. You can bet your
-                        life on <br />
-                        that.
-                    </p>
-                </div>
-                <img src="swim.svg" alt="" class="icon" id="swim" />
-                <div id="swimcopy"></div>
-                <div>
-                    <h4>An Acquired Taste</h4>
-                    <p>
-                        It may be a little while for you to warm up to us but
-                        once you <br />
-                        do you will never want to switch.
-                    </p>
-                </div>
-            </div>
-            <div class="secondbox">
-                <img src="world.svg" alt="" class="icon" id="world" />
-                <div id="world-world">
-                    <div id="worldcopy">
-                        <h4>Reliable Service</h4>
+            <div id="firstbox" class="copyboxes">
+                <div class="four-sections" id="top-left">
+                    <img src="cat.svg" alt="" class="icon" id="cat" />
+                    <div class="copy">
+                        <h4>Best in class features</h4>
                         <p>
-                            You can cout on us to help you whenever you need it.
-                            We're <br />
-                            talking around the clock service
+                            Nobody does this stuff better than us. You can bet
+                            your life on that.
                         </p>
                     </div>
                 </div>
-                <img src="columns.svg" alt="" class="icon" id="columns" />
-                <div id="columns-columns">
-                    <div id="columnscopy">
+                <div class="four-sections" id="top-right">
+                    <img src="world.svg" alt="" class="icon" id="world" />
+                    <div class="copy">
+                        <h4>Reliable Service</h4>
+                        <p>
+                            You can cout on us to help you whenever you need it.
+                            We're talking around the clock service.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="secondbox" class="copyboxes">
+                <div class="four-sections" id="bottom-left">
+                    <img src="swim.svg" alt="" class="icon" id="swim" />
+                    <div class="copy">
+                        <h4>An Acquired Taste</h4>
+                        <p>
+                            It may be a little while for you to warm up to us
+                            but once you do you will never want to switch.
+                        </p>
+                    </div>
+                </div>
+                <div class="four-sections" id="bottom-right">
+                    <img src="columns.svg" alt="" class="icon" id="columns" />
+                    <div class="copy">
                         <h4>No limits</h4>
                         <p>
                             There are absolutely no limits. We do not throttle.
-                            We do not <br />
-                            cap.
+                            We do not cap.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-        <!--sidenav is a child of overlay - allows us to add class to overlay element only; 
-but make sure you handle event bubbling so that nothing happens when clicking on the nav-->
-
         <div class="overlay">
             <div class="side-nav">
-                <div id="#close-div">
+                <div id="close-button">
                     <p id="close">x</p>
                 </div>
                 <p>
@@ -99,6 +94,6 @@ but make sure you handle event bubbling so that nothing happens when clicking on
                 </p>
             </div>
         </div>
+        <script src="website.js"></script>
     </body>
-    <script src="website.js"></script>
 </html>
