@@ -1,59 +1,69 @@
 (function () {
-    var kitties = document.querySelectorAll(".container img");
-    console.log("kitties: ", kitties);
+    var kitties = document.querySelectorAll(".container img"); //console.log("kitties: ", kitties);
+    var dots = document.querySelectorAll(".dot"); //console.log("dots:", dots);
+    var i = 0;
+    // var timer;
+    var isCurrentlyAnimating;
+    var j = 0;
 
-    function swapKitties() {
-        // remove a kitty from the screen
-        kitties[0].classList.remove("onscreen");
-        kitties[0].classList.add("offscreen-left");
+    var timer = setTimeout(swapKitties, 5000);
 
-        // pull next kitty in the queue onscreen
-        kitties[1].classList.add("onscreen");
+    // event listener on "transition end" event
+    document.addEventListener("transitionend", function (e) {
+        isCurrentlyAnimating = false;
+        if (e.target.classList.contains("offscreen-left")) {
+            e.target.classList.remove("offscreen-left");
 
-        // kitties[1].classList.remove("onscreen");
-        // kitties[1].classList.add("offscreen");
-        // kitties[2].classList.add("onscreen");
-        // kitties[1].classList.remove("onscreen"); you could do this manually for each kitty transition
-        // kitties[1].classList.add("offscreen"); ie. a function for each transition
-        // kitties[2].classList.add("onscreen"); dont do this - do not use loops but find away to achieve thsi within
-        // the single existing function swapKitties
+            setTimeout(swapKitties, 5000);
+            console.log("animating?", isCurrentlyAnimating);
+        }
+    });
 
-        // kitties[2].classList.add("offscreen");
-        // kitties[3].classList.add("onscreen");
-        // kitties[3].classList.add("offscreen");
+    // how to grab which dot the user clicked on
+    for (j = 0; j < dots.length; j++) {
+        dots[j].addEventListener("click", function (e) {
+            // clearTimeout(timer);
+            if (j === i) {
+                console.log("same j and i");
+                console.log("j: ", j);
+                console.log("i: ", i);
+                return; // problem 1: if user clicks on dot of the image that is currently displayed, do nothing
+            }
+
+            if (isCurrentlyAnimating) {
+                console.log("hello"); // problem 2: if user clicks dot while images are animating/transitioning, do nothing
+            } else {
+                for (j = 0; j < dots.length; j++) {
+                    if (dots[j] == e.target) {
+                        // dots[j].classList.add("on");
+
+                        // swapKitties(j);
+                        break;
+                    }
+                }
+            }
+        });
     }
 
-    setTimeout(swapKitties, 1000);
+    function swapKitties(nextIndex) {
+        isCurrentlyAnimating = true;
+        console.log("animating?", isCurrentlyAnimating);
+        kitties[i].classList.remove("onscreen");
+        kitties[i].classList.add("offscreen-left");
+        dots[i].classList.remove("on");
 
-    // *FIGURE OUT WHERE TO CALL swapKitties again to ensure the courousel goes on... *
-
-    document.addEventListener("transitionend", function (e) {
-        console.log(.target); //to check which transition ended/ use the event object
-        if (e.target.property === "offscreen-left") {
-            // e.target.removeClass("offscreen-class");
-            console.log("offscreen transition, do something");
+        if (typeof nextIndex != "undefined") {
+            i = nextIndex;
         } else {
-            console.log("onscreen transition, do nothing"); // for onscreen transition, ignore
+            i++;
+            console.log[i];
+
+            if (i === kitties.length) {
+                i = 0;
+            }
+
+            kitties[i].classList.add("onscreen");
+            dots[i].classList.add("on");
         }
-
-        // for offscreen transition, remove offscreen class - this will place the kitties back in the queue
-    });
+    }
 })();
-
-//define i and call teh function for 1++
-
-// remove offscreen adds the kitty back to the queue; but this can only be done after the offscreen transition is
-// complete (i.e. the kitty is fully offscreen)
-
-document.addEventListener("transitionend", function () {
-    // this event fires when a transition ends
-    //we have 2 transitions that may end -
-    // 1: queue > onscreen;
-    //- this event listener does not care about the
-    // 2: onscreen > offscreen
-    // - the event listener cares about this transition
-    // when this transition ends, remove offscreen class
-    //so what the transitioned event event listener will have to do is:
-    // - if the transition that ended is the transition to onscreen - do nothing
-    // - if the transition that ended is the transition to offscreen, remove the offscreen class
-});
