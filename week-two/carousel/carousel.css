@@ -44,12 +44,12 @@ body {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 3px white solid;
+    border: 2px red solid;
     margin: 0 4px 0;
     /* position: relative; */
 }
 
 .on {
-    background-color: white;
+    background-color: red;
     transition: 3s;
 }
