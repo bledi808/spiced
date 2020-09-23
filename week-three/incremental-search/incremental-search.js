@@ -38,7 +38,7 @@
         if (results.length === 0 && userInput.length !== 0) {
             displayResults.html(htmlForNoResults);
             displayResults.css({
-                color: "blue",
+                color: "slategrey",
             });
         }
     });
@@ -79,22 +79,35 @@
     // });
 
     searchField.on("keydown", function (e) {
-        if (e.keyCode === 40) {
-            if (!$("p").hasClass("highlight")) {
-                $("p").first().addClass("highlight");
+        var isHighlighted = $(".highlight");
+        var country = $(".country");
+        //when down arrow is pressed, navigate through the results downwards
+        if (e.which === 40) {
+            if (
+                isHighlighted.length === 0 ||
+                country.last().hasClass("highlight")
+            ) {
+                country.first().addClass("highlight");
             }
-            // $("p").next().addClass("highlight").prev().removeClass("highlight");
-
-            // if ($("p").eq(0).hasClass("highlight")) {
-            //     $(".highlight").removeClass("highlight");
-            //     $("p").eq(1).addClass("highlight");
-        }
-        if (e.keyCode === 38) {
-            if ($("p").first().hasClass("highlight")) {
-                //do nothing
+            if (isHighlighted.length != 0) {
+                isHighlighted.next().addClass("highlight");
+                isHighlighted.removeClass("highlight");
             }
         }
-        //when enter key is pressed, populate input field with ighlighted value unless it is "No countries found"
+        //when up arrow is pressed, navigate through the results upwards
+        if (e.which === 38) {
+            if (
+                isHighlighted.length === 0 ||
+                country.first().hasClass("highlight")
+            ) {
+                country.last().addClass("highlight");
+            }
+            if (isHighlighted.length != 0) {
+                isHighlighted.prev().addClass("highlight");
+                isHighlighted.removeClass("highlight");
+            }
+        }
+        //when enter key is pressed, populate input field with highlighted value unless it is "No countries found"
         if (e.keyCode === 13 && $("p").hasClass("country")) {
             searchField.val($(".highlight").text());
         }
