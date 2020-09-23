@@ -1,42 +1,32 @@
 (function (countries) {
-    // console.log($);
-    // console.log(countries);
-
     var searchField = $("input");
-    // console.log("search: ", searchField);
-
     var displayResults = $(".results");
+    // var i = 0;
 
-    var i = 0;
     // input
     searchField.on("input", function () {
-        // console.log("sanity input");
-        // console.log("searchField.val():", searchField.val());
         var userInput = searchField.val().toLowerCase();
         var results = [];
         for (var i = 0; i < countries.length; i++) {
-            // console.log("check:", countries[i]);
             if (countries[i].toLowerCase().indexOf(userInput) == 0) {
                 results.push(countries[i]);
-                // console.log(results);
             }
             if (results.length === 4) {
                 break;
             }
         }
-        // console.log("countries:", results);
         var htmlForCountries = "";
         for (i = 0; i < results.length; i++) {
             htmlForCountries += "<p class='country'>" + results[i] + "</p>";
-            console.log(htmlForCountries);
             displayResults.html(htmlForCountries);
             displayResults.css({
                 width: "23vw",
                 fontSize: "16px",
                 cursorType: "default",
+                color: "black",
+                fontStyle: "Arial",
             });
         }
-
         //handles case for when input is cleared, results are cleared
         if (userInput.length == 0) {
             displayResults.hide();
@@ -46,12 +36,9 @@
         //handles case of no matching results but there is user input
         var htmlForNoResults = "<p>" + "No countries found!" + "</p>";
         if (results.length === 0 && userInput.length !== 0) {
-            // console.log("No matching");
-            // console.log(htmlForNoResults);
             displayResults.html(htmlForNoResults);
             displayResults.css({
-                color: "lightslategray",
-                // transform: "translateY(-100%)",
+                color: "blue",
             });
         }
     });
@@ -74,8 +61,8 @@
         $(e.target).addClass("highlight");
     });
 
-    // mousedown - no need for delegation as it bubbles up to searchField
-    displayResults.on("mousedown", ".country", function (e) {
+    // mousedown, using event delegation
+    displayResults.on("mousedown", ".country", function () {
         searchField.val($(".highlight").text());
     });
 
@@ -102,12 +89,13 @@
             //     $(".highlight").removeClass("highlight");
             //     $("p").eq(1).addClass("highlight");
         }
-        if (e.keyCode === 13) {
+        if (e.keyCode === 38) {
             if ($("p").first().hasClass("highlight")) {
                 //do nothing
             }
         }
-        if (e.keyCode === 13) {
+        //when enter key is pressed, populate input field with ighlighted value unless it is "No countries found"
+        if (e.keyCode === 13 && $("p").hasClass("country")) {
             searchField.val($(".highlight").text());
         }
     });
