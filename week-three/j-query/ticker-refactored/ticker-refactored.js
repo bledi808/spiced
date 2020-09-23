@@ -22,16 +22,12 @@ function tickerTape() {
 }
 
 //stoping animation:
-$("a").on("mouseenter", function hover(e) {
+$("a").on("mouseenter", function (e) {
     cancelAnimationFrame(animId);
-    $(e.target).css({
-        color: "blue",
-        textDecoration: "underline",
-    });
-    $("a").off("mouseenter", hover);
-    // $(e.target).off("mouseenter", hover); // for some reason, not working
+    $(e.target).addClass("hover");
 });
 
-$("a").on("mouseleave", function (e) {
+$("a").on("mouseleave", function () {
     requestAnimationFrame(tickerTape);
+    $(".hover").removeClass("hover");
 });
