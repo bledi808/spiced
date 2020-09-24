@@ -43,8 +43,6 @@
         }
     });
 
-    searchField.on("input", function () {});
-
     // blur listener
     searchField.on("blur", function () {
         displayResults.hide();
@@ -66,18 +64,7 @@
         searchField.val($(".highlight").text());
     });
 
-    // searchField.on("keydown", function (e) {
-    //     if (e.keyCode === 40) {
-    //         $(".highlight").removeClass("highlight");
-    //         $("p").eq(i).addClass("highlight");
-    //         i++;
-    //         console.log(i);
-    //     }
-    //     if (i === 4) {
-    //         i = 0;
-    //     }
-    // });
-
+    //keydown
     searchField.on("keydown", function (e) {
         var isHighlighted = $(".highlight");
         var country = $(".country");
