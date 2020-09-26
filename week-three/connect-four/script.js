@@ -1,23 +1,27 @@
 (function () {
     // console.log($);
 
+    // CURRENT PLAYER
     var currentPlayer = "player1"; // assigns player 1 to currentPlayer
 
     function switchPlayer() {
         currentPlayer = currentPlayer === "player1" ? "player2" : "player1";
     }
 
+    var allSlots = $(".slot");
+
     // MAIN CLICK HANDLER
     $(".column").on("click", function (e) {
         var col = $(e.currentTarget);
         var slotsInCol = col.children();
-        // console.log("slotsInCol:", slotsInCol);
+        console.log("slotsInCol:", slotsInCol);
         for (var i = slotsInCol.length - 1; i >= 0; i--) {
             if (
                 !slotsInCol.eq(i).hasClass("player1") && // if no slot has class player1/2
                 !slotsInCol.eq(i).hasClass("player2")
             ) {
                 slotsInCol.eq(i).addClass(currentPlayer); // add class player1 or 2 (determined by currentPlayer)
+
                 break;
             }
         }
@@ -26,24 +30,29 @@
         }
         var slotsInRow = $(".row" + i);
         // console.log("slotsInRow:", slotsInRow);
-        // var slotOnBoard = $(".slots");
-        // console.log("slotsOnBoard:", slotOnBoard);
         if (checkForVictory(slotsInCol)) {
             console.log("COLUMN victory");
+            window.alert("COLUMN victory");
+            // resetOverlay.addClass("overlay-on");
         } else if (checkForVictory(slotsInRow)) {
             console.log("ROW victory");
         } else if (checkForDiagonals()) {
             console.log("DIAGONAL victory");
+        } else if (
+            slotsInCol.hasClass("player1") ||
+            slotsInCol.hasClass("player2")
+        ) {
+            console.log("it's a draw - a.k.a: everyone's a loser");
         }
         switchPlayer();
         // console.log("i", i);
+        return;
     });
 
     function checkForVictory(slots) {
         var count = 0;
         for (var i = 0; i < slots.length; i++) {
             var slot = $(slots[i]); // allows us to call jquery methods on all DOM elements
-            // console.log("victory slot", slot);
             if (slot.hasClass(currentPlayer)) {
                 count++; //if slot has the class current player, increment count
                 console.log("victory count:", count);
@@ -56,23 +65,7 @@
         }
     }
 
-    ////////// CLEAR BUTTON
-    //grab $(".slot")
-    //location.reload - easy way to clear
-    var board = $(".slot");
-    // console.log(board);
-    var clearButton = $(".clear");
-    // console.log(clearButton);
-
-    clearButton.on("click", function () {
-        board.removeClass("player1");
-        board.removeClass("player2");
-        // textbox.removeAttr("style");
-    });
-
     ////////// DIAGONALS
-    //1. there are 24 possible combinations (of indexes) of diagonal wins - put these inside an array of arrays
-    // loop over it (diags): for each of these loop inside of the the arrays and pass into checkForVictory
 
     function checkForDiagonals() {
         var winningDiagonals = [
@@ -103,71 +96,63 @@
         ];
 
         var allSlots = $(".slot");
-        // var count = 0;
         for (var i = 0; i < winningDiagonals.length; i++) {
             var diagonal = winningDiagonals[i];
-            //console.log(diagonal);
+            // console.log(diagonal);
             var checkDiag = [];
-            checkDiag.push(allSlots.eq(diagonal[0]));
-            checkDiag.push(allSlots.eq(diagonal[1]));
-            checkDiag.push(allSlots.eq(diagonal[2]));
-            checkDiag.push(allSlots.eq(diagonal[3]));
+            for (var j = 0; j < diagonal.length; j++) {
+                checkDiag.push(allSlots.eq(diagonal[j]));
+                // console.log("check after loop:", checkDiag);
+            }
             if (checkForVictory(checkDiag)) {
-                //var win = true;
-                console.log("found win");
+                // console.log("found win");
                 return true;
             }
-            // count++;
-            // console.log("diag count", count);
         }
-
-        return false;
-
-        // var count = 0;
-        // console.log("diagonalSlot:", slot);
-        // for (var i = 0; i < diagonals.length; i++) {
-        //     var slot = $(slotOnBoard[i]);
-        //     if ($.inArray(slot.val(), diagonals[i]) >> -1) {
-        // console.log("slotExistsinArray");
-        // console.log("slot.val():", slot.val());
-        // }
-        // console.log("diagonals.length", diagonals.length);
-        // console.log("diagonals[i]", diagonals[i]);
-        // if (slot.hasClass(currentPlayer)) {
-        //     console.log("bledi");
-        //     count++;
-        //     console.log("countDiagonals:", count);
-        // }
-        // for (var j = 0; j < diagonals[i].length; j++) {
-        // var slot = $(diagonals[i][j]);
-        // console.log("slotDiagonal", slot);
-        // console.log("diagonals[i].length", diagonals[i].length);
-        // console.log("diagonals[i][j]", diagonals[i][j]);
-        // if (checkForVictory(diagonals[i])) {
-        //     return true;
-        //     console.log("victorious diagonals");
     }
-    // if ($(diagonals[i][j]).hasClass(currentPlayer)) {
-    // investigate how to check class of nested arrays?
-    //     return true;
-    //     count++;
-    // count++;
-    // console.log("countDiagonals:", count);
-    //             // return;
-    //         }
-    //     }
-    // }
 
-    // 2. X (cross) approach - generate two possible arrays (going diagonally - upwards and downwars)
+    ////////// CLEAR BUTTON
+    var board = $(".slot");
+    // console.log(board);
+    var clearButton = $(".clear");
+    // console.log(clearButton);
+    var resetOverlay = $(".overlay");
+    console.log(resetOverlay);
+    var showTurn = $(".turn-indicator");
 
-    // 3. rows and columns - loop over every slot in the board and check 4 down and 4up; then move on to the next slot
-    // so you generate 2 arrays that you pass to teh win function; no sequetial checks
+    clearButton.on("click", function () {
+        board.removeClass("player1");
+        board.removeClass("player2"); //
+        resetOverlay.addClass("overlay-on");
+        currentPlayer = "player1"; // always start with player 1
+        showTurn.removeClass("player2-turn");
+        showTurn.addClass("player1-turn");
+        $(".two-turn").removeClass("on");
+        $(".one-turn").addClass("on");
+    });
 
-    // 4. patterns of 5 and 7 works but requires additional check that each piece/index is sequential (i.e. in sequential columns)
+    ////////// DISPLAY PLAYER TURN
+    $(".column").on("click", function (e) {
+        var col = $(e.currentTarget);
+        var slotsInCol = col.children();
+        for (var i = slotsInCol.length - 1; i >= 0; i--) {
+            if (slotsInCol.eq(i).hasClass("player1")) {
+                showTurn.removeClass("player1-turn");
+                showTurn.addClass("player2-turn");
+                $(".one-turn").removeClass("on");
+                $(".two-turn").addClass("on");
+            }
+            if (slotsInCol.eq(i).hasClass("player2")) {
+                showTurn.removeClass("player2-turn");
+                showTurn.addClass("player1-turn");
+                $(".two-turn").removeClass("on");
+                $(".one-turn").addClass("on");
+            }
+        }
+    });
 
-    // 5. column + row approach: add them together (see screenshot);
-    //columns - rows (the other diagonal direction) (see screenshot - red)
-    // here we need know which row and column we clicked on (for row we can use i = row clicked on)
-    // for column - use jquery method 'index' - col.index() - searches for a given element in the given elms
-    // you can git both i and col.index()
+    ////////// BONUS
+    // players can select their colours?
+    // show score
+    // winner banner
 })();

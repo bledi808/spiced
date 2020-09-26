@@ -7,8 +7,11 @@
         <title>connect𝟜</title>
     </head>
     <body>
+        <header>
+            <div id="logo">connect four</div>
+        </header>
         <div class="board-container">
-            <div id="board">
+            <div class="board">
                 <div class="column">
                     <div class="slot row0">
                         <div class="hole"></div>
@@ -150,10 +153,15 @@
                     </div>
                 </div>
             </div>
-            <div class="buttons">
+            <div class="footer">
                 <button class="clear">clear board</button>
+                <div class="turn-indicator player1-turn">
+                    <p class="one-turn on">player 1 plays next</p>
+                    <p class="two-turn">player 2 plays next</p>
+                </div>
             </div>
         </div>
+        <div class="overlay"></div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="script.js"></script>
     </body>
