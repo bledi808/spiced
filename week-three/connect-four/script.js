@@ -26,12 +26,13 @@
         }
         var slotsInRow = $(".row" + i);
         // console.log("slotsInRow:", slotsInRow);
+        // var slotOnBoard = $(".slots");
+        // console.log("slotsOnBoard:", slotOnBoard);
         if (checkForVictory(slotsInCol)) {
             console.log("COLUMN victory");
         } else if (checkForVictory(slotsInRow)) {
             console.log("ROW victory");
         } else if (checkForDiagonals()) {
-            //pass relevant arguments here - "slots", "columns", "rows" depending on chosen approach
             console.log("DIAGONAL victory");
         }
         switchPlayer();
@@ -55,12 +56,26 @@
         }
     }
 
+    ////////// CLEAR BUTTON
+    //grab $(".slot")
+    //location.reload - easy way to clear
+    var board = $(".slot");
+    // console.log(board);
+    var clearButton = $(".clear");
+    // console.log(clearButton);
+
+    clearButton.on("click", function () {
+        board.removeClass("player1");
+        board.removeClass("player2");
+        // textbox.removeAttr("style");
+    });
+
     ////////// DIAGONALS
     //1. there are 24 possible combinations (of indexes) of diagonal wins - put these inside an array of arrays
     // loop over it (diags): for each of these loop inside of the the arrays and pass into checkForVictory
 
     function checkForDiagonals() {
-        var diagonals = [
+        var winningDiagonals = [
             [0, 7, 14, 21],
             [1, 8, 15, 22],
             [2, 9, 16, 23],
@@ -86,29 +101,62 @@
             [22, 27, 32, 37],
             [23, 28, 33, 38],
         ];
-        var count = 0;
-        for (var i = 0; i < diagonals.length; i++) {
-            // console.log("diagonals.length", diagonals.length);
-            // console.log("diagonals[i]", diagonals[i]);
-            for (var j = 0; j < diagonals[i].length; j++) {
-                // var slot = $(diagonals[i][j]);
-                // console.log("slotDiagonal", slot);
-                // console.log("diagonals[i].length", diagonals[i].length);
-                // console.log("diagonals[i][j]", diagonals[i][j]);
-                // if (checkForVictory(diagonals[i])) {
-                //     return true;
-                //     console.log("victorious diagonals");
+
+        var allSlots = $(".slot");
+        // var count = 0;
+        for (var i = 0; i < winningDiagonals.length; i++) {
+            var diagonal = winningDiagonals[i];
+            //console.log(diagonal);
+            var checkDiag = [];
+            checkDiag.push(allSlots.eq(diagonal[0]));
+            checkDiag.push(allSlots.eq(diagonal[1]));
+            checkDiag.push(allSlots.eq(diagonal[2]));
+            checkDiag.push(allSlots.eq(diagonal[3]));
+            if (checkForVictory(checkDiag)) {
+                //var win = true;
+                console.log("found win");
+                return true;
             }
-            if ($(diagonals[i][j]).hasClass(currentPlayer)) {
-                // investigate how to check class of nested arrays?
-                //     return true;
-                //     count++;
-                count++;
-                console.log("countDiagonals:", count);
-                return;
-            }
+            // count++;
+            // console.log("diag count", count);
         }
+
+        return false;
+
+        // var count = 0;
+        // console.log("diagonalSlot:", slot);
+        // for (var i = 0; i < diagonals.length; i++) {
+        //     var slot = $(slotOnBoard[i]);
+        //     if ($.inArray(slot.val(), diagonals[i]) >> -1) {
+        // console.log("slotExistsinArray");
+        // console.log("slot.val():", slot.val());
+        // }
+        // console.log("diagonals.length", diagonals.length);
+        // console.log("diagonals[i]", diagonals[i]);
+        // if (slot.hasClass(currentPlayer)) {
+        //     console.log("bledi");
+        //     count++;
+        //     console.log("countDiagonals:", count);
+        // }
+        // for (var j = 0; j < diagonals[i].length; j++) {
+        // var slot = $(diagonals[i][j]);
+        // console.log("slotDiagonal", slot);
+        // console.log("diagonals[i].length", diagonals[i].length);
+        // console.log("diagonals[i][j]", diagonals[i][j]);
+        // if (checkForVictory(diagonals[i])) {
+        //     return true;
+        //     console.log("victorious diagonals");
     }
+    // if ($(diagonals[i][j]).hasClass(currentPlayer)) {
+    // investigate how to check class of nested arrays?
+    //     return true;
+    //     count++;
+    // count++;
+    // console.log("countDiagonals:", count);
+    //             // return;
+    //         }
+    //     }
+    // }
 
     // 2. X (cross) approach - generate two possible arrays (going diagonally - upwards and downwars)
 
@@ -122,6 +170,4 @@
     // here we need know which row and column we clicked on (for row we can use i = row clicked on)
     // for column - use jquery method 'index' - col.index() - searches for a given element in the given elms
     // you can git both i and col.index()
-
-    ////////// SWITCH PLAYER TURNS
 })();
