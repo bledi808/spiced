@@ -4,13 +4,15 @@
     ////////// VARIABLES
     var allSlots = $(".slot");
     var currentPlayer = "player1"; // assigns player 1 to currentPlayer
+    var p1score = 0;
+    var p2score = 0;
 
     ////////// SWITCH PLAYERS
     function switchPlayer() {
         currentPlayer = currentPlayer === "player1" ? "player2" : "player1";
     }
 
-    //////////  MAIN GAMEPLAY CLICK HANDLER
+    //////////  MAIN GAMEPLAY CLICK HANDLER // WINNER ANIMATION // SCORE-SHEET
     $(".column").on("click", function (e) {
         var col = $(e.currentTarget); // console.log("slotsInCol:", slotsInCol);
         var slotsInCol = col.children();
@@ -37,6 +39,19 @@
                 "<br/>vertical victory!" +
                 "</p>";
             $("#modal").html(verticalHtml);
+            if (currentPlayer === "player1") {
+                p1score++;
+                // console.log("p1score:", p1score);
+                $("#p1-score").html(
+                    "<span id='p1-html'>" + p1score + "</span> "
+                );
+            } else if (currentPlayer === "player2") {
+                p2score++;
+                // console.log("p2score:", p2score);
+                $("#p2-score").html(
+                    "<span id='p2-html'>" + p2score + "</span> "
+                );
+            }
         } else if (checkForVictory(slotsInRow)) {
             playAgainButton.addClass("play-again-on");
             gameOverlay.addClass("modal-on");
@@ -47,6 +62,19 @@
                 "<br/>horizontal humiliation!" +
                 "</p>";
             $("#modal").html(horizontalHtml);
+            if (currentPlayer === "player1") {
+                p1score++;
+                // console.log("p1score:", p1score);
+                $("#p1-score").html(
+                    "<span id='p1-html'>" + p1score + "</span> "
+                );
+            } else if (currentPlayer === "player2") {
+                p2score++;
+                // console.log("p2score:", p2score);
+                $("#p2-score").html(
+                    "<span id='p2-html'>" + p2score + "</span> "
+                );
+            }
         } else if (checkForDiagonals()) {
             playAgainButton.addClass("play-again-on");
             gameOverlay.addClass("modal-on");
@@ -57,6 +85,19 @@
                 "<br/>diagonal destruction!" +
                 "</p>";
             $("#modal").html(diagonalHtml);
+            if (currentPlayer === "player1") {
+                p1score++;
+                // console.log("p1score:", p1score);
+                $("#p1-score").html(
+                    "<span id='p1-html'>" + p1score + "</span> "
+                );
+            } else if (currentPlayer === "player2") {
+                p2score++;
+                // console.log("p2score:", p2score);
+                $("#p2-score").html(
+                    "<span id='p2-html'>" + p2score + "</span> "
+                );
+            }
         }
         switchPlayer();
         // console.log("i", i);
@@ -81,7 +122,6 @@
     }
 
     ////////// DIAGONAL FUNCTION
-
     function checkForDiagonals() {
         var winningDiagonals = [
             [0, 7, 14, 21],
@@ -135,7 +175,7 @@
                 showTurn.addClass("player2-turn");
                 $(".one-turn").removeClass("on");
                 $(".two-turn").addClass("on");
-            } // FIX BUG (set limit)
+            }
             if (slotsInCol.eq(i).hasClass("player2")) {
                 showTurn.removeClass("player2-turn");
                 showTurn.addClass("player1-turn");
@@ -163,7 +203,7 @@
         $(".one-turn").addClass("on");
     });
 
-    ////////// GAME OVER MODAL - SHOW WINNER - PLAY AGAIN BUTTON
+    ////////// PLAY AGAIN BUTTON
     var playAgainButton = $(".play-again");
     var gameOverlay = $(".overlay");
 
@@ -177,5 +217,12 @@
         showTurn.addClass("player1-turn");
         $(".two-turn").removeClass("on");
         $(".one-turn").addClass("on");
+    });
+
+    ////////// COLUMN INDICATOR
+    var column = $(".column");
+    column.on("mouseover", function (e) {
+        $(".select-column").removeClass("select-column");
+        $(e.currentTarget).addClass("select-column");
     });
 })();

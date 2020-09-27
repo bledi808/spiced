@@ -11,21 +11,42 @@ body {
 
 header {
     position: relative;
-    width: 557px;
-    top: 4%;
+    width: 569px;
+    top: 5%;
     left: 3%;
     font: 30px "Fira Sans", sans-serif;
     background-color: antiquewhite;
     color: darkred;
-    padding-left: 3px;
+    padding-left: 5px;
     border-bottom: 1px darkred solid;
+}
+
+#p1-html {
+    width: 7%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    right: 7%;
+    background-color: tomato;
+    color: antiquewhite;
+    text-align: center;
+}
+
+#p2-html {
+    position: absolute;
+    width: 7%;
+    height: 100%;
+    top: 0%;
+    right: 0%;
+    background-color: yellowgreen;
+    color: antiquewhite;
+    text-align: center;
 }
 
 .board-container {
     position: absolute;
     left: 3%;
-    top: 10%;
-    /* border: 2px black solid; */
+    top: 11%;
 }
 
 .board {
@@ -53,7 +74,7 @@ header {
     width: 60px;
     border-radius: 50%;
     transform: translate(-30px, -30px);
-    border: 38px solid lightslategray;
+    border: 38px lightslategray solid;
 }
 
 .footer {
@@ -132,9 +153,9 @@ header {
 .overlay {
     position: fixed;
     height: 480px;
-    width: 560px;
+    width: 574px;
     left: 3%;
-    top: 10%;
+    top: 11%;
     background-color: lightgoldenrodyellow;
     opacity: 0.712;
     z-index: 2;
@@ -165,4 +186,13 @@ header {
     transition: 1.5s;
     visibility: visible;
     margin-left: 0%;
+}
+
+.column {
+    border-left: 1px lightslategray solid;
+    border-right: 1px lightslategray solid;
+}
+.select-column {
+    border-left: 1px darkgrey solid;
+    border-right: 1px darkgrey solid;
 }
