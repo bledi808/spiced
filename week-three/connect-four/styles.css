@@ -4,18 +4,17 @@
 }
 
 body {
-    background-color: lightgray;
+    background-color: rgb(215, 215, 215);
     /* border: 2px black solid; */
     height: 100vh;
 }
 
 header {
     position: relative;
-    width: 558px;
-    top: 5%;
+    width: 557px;
+    top: 4%;
     left: 3%;
-    font-size: 26px;
-    font: 26px "Fira Sans", sans-serif;
+    font: 30px "Fira Sans", sans-serif;
     background-color: antiquewhite;
     color: darkred;
     padding-left: 3px;
@@ -31,42 +30,6 @@ header {
 
 .board {
     display: flex;
-    /* border: 2px rgba(0, 0, 0, 0.392) solid; */
-    /* transition: 1.5s; */
-}
-
-.overlay-on {
-    position: fixed;
-    height: 480px;
-    width: 560px;
-    left: 3%;
-    top: 10%;
-    animation-name: reset-slidein;
-    animation-duration: 2s;
-    z-index: 2;
-    visibility: hidden;
-}
-
-@keyframes reset-slidein {
-    from {
-        margin-left: -100%;
-        background-color: lightslategray;
-        opacity: 0;
-        /* visibility: hidden; */
-    }
-
-    70% {
-        margin-left: 0;
-        background-color: lightslategray;
-        opacity: 1;
-        visibility: visible;
-    }
-    to {
-        margin-left: -100%;
-        background-color: lightslategray;
-        opacity: 0;
-        visibility: hidden;
-    }
 }
 
 .player1 {
@@ -75,7 +38,6 @@ header {
 }
 
 .player2 {
-    /* animation-name: slotcolor2; */
     transition: 1.5s;
     background-color: yellowgreen;
 }
@@ -97,7 +59,6 @@ header {
 .footer {
     position: relative;
     margin-top: 1%;
-    /* border: 0.5px black solid; */
 }
 
 .clear {
@@ -108,10 +69,32 @@ header {
     border: 0px antiquewhite solid;
     background-color: antiquewhite;
     border-top: 1px darkred solid;
+    width: 25.5%;
+    transition: 1.5s;
 }
+
+.play-again {
+    color: antiquewhite;
+    font: 26px "Fira Sans", sans-serif;
+    margin-right: 1%;
+    border-radius: 0%;
+    border: 0px darkred solid;
+    border-top: 1px antiquewhite solid;
+    visibility: hidden;
+    position: absolute;
+    width: 25.5%;
+    left: 0;
+    transition: 1.5s;
+}
+
+.play-again-on {
+    visibility: visible;
+    transition: 1.5s;
+    background-color: darkred;
+}
+
 .turn-indicator {
     position: absolute;
-    /* border: 0.5px black solid; */
     height: 98%;
     width: 73.7%;
     top: 0;
@@ -121,11 +104,11 @@ header {
 
 .player1-turn {
     background-color: tomato;
-    transition-delay: 1.5s;
+    transition: 1.5s;
 }
 .player2-turn {
     background-color: yellowgreen;
-    transition-delay: 1.5s;
+    transition: 1.5s;
 }
 
 .one-turn,
@@ -137,11 +120,49 @@ header {
     transform: translateX(-50%);
     font: 26px "Fira Sans", sans-serif;
     visibility: hidden;
-    transition-delay: 1.5s;
+    transition: 1.5s;
     color: antiquewhite;
 }
 
 .on {
     visibility: visible;
     transition-delay: 1.5s;
+}
+
+.overlay {
+    position: fixed;
+    height: 480px;
+    width: 560px;
+    left: 3%;
+    top: 10%;
+    background-color: lightgoldenrodyellow;
+    opacity: 0.712;
+    z-index: 2;
+    visibility: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100%;
+    transition: 1.5s;
+}
+
+#modal {
+    width: 100%;
+    background-color: black;
+    opacity: 0.812;
+    transition: 1.5s;
+}
+
+#winner {
+    font: 20px "Fira Sans", sans-serif;
+    margin: 2%;
+    text-align: center;
+    color: white;
+}
+
+.modal-on {
+    transition: 1.5s;
+    visibility: visible;
+    margin-left: 0%;
 }

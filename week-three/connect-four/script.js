@@ -1,54 +1,69 @@
 (function () {
     // console.log($);
 
-    // CURRENT PLAYER
+    ////////// VARIABLES
+    var allSlots = $(".slot");
     var currentPlayer = "player1"; // assigns player 1 to currentPlayer
 
+    ////////// SWITCH PLAYERS
     function switchPlayer() {
         currentPlayer = currentPlayer === "player1" ? "player2" : "player1";
     }
 
-    var allSlots = $(".slot");
-
-    // MAIN CLICK HANDLER
+    //////////  MAIN GAMEPLAY CLICK HANDLER
     $(".column").on("click", function (e) {
-        var col = $(e.currentTarget);
+        var col = $(e.currentTarget); // console.log("slotsInCol:", slotsInCol);
         var slotsInCol = col.children();
-        console.log("slotsInCol:", slotsInCol);
         for (var i = slotsInCol.length - 1; i >= 0; i--) {
             if (
                 !slotsInCol.eq(i).hasClass("player1") && // if no slot has class player1/2
                 !slotsInCol.eq(i).hasClass("player2")
             ) {
                 slotsInCol.eq(i).addClass(currentPlayer); // add class player1 or 2 (determined by currentPlayer)
-
                 break;
             }
         }
         if (i === -1) {
             return;
         }
-        var slotsInRow = $(".row" + i);
-        // console.log("slotsInRow:", slotsInRow);
+        var slotsInRow = $(".row" + i); //// console.log("slotsInRow:", slotsInRow);
         if (checkForVictory(slotsInCol)) {
-            console.log("COLUMN victory");
-            window.alert("COLUMN victory");
-            // resetOverlay.addClass("overlay-on");
+            playAgainButton.addClass("play-again-on");
+            gameOverlay.addClass("modal-on");
+            var verticalHtml =
+                "<p id='winner'>" +
+                currentPlayer +
+                " wins!" +
+                "<br/>vertical victory!" +
+                "</p>";
+            $("#modal").html(verticalHtml);
         } else if (checkForVictory(slotsInRow)) {
-            console.log("ROW victory");
+            playAgainButton.addClass("play-again-on");
+            gameOverlay.addClass("modal-on");
+            var horizontalHtml =
+                "<p id='winner'>" +
+                currentPlayer +
+                " wins!" +
+                "<br/>horizontal humiliation!" +
+                "</p>";
+            $("#modal").html(horizontalHtml);
         } else if (checkForDiagonals()) {
-            console.log("DIAGONAL victory");
-        } else if (
-            slotsInCol.hasClass("player1") ||
-            slotsInCol.hasClass("player2")
-        ) {
-            console.log("it's a draw - a.k.a: everyone's a loser");
+            playAgainButton.addClass("play-again-on");
+            gameOverlay.addClass("modal-on");
+            var diagonalHtml =
+                "<p id='winner'>" +
+                currentPlayer +
+                " wins!" +
+                "<br/>diagonal destruction!" +
+                "</p>";
+            $("#modal").html(diagonalHtml);
         }
         switchPlayer();
         // console.log("i", i);
         return;
     });
 
+    ////////// VICTORY FUNCTION
     function checkForVictory(slots) {
         var count = 0;
         for (var i = 0; i < slots.length; i++) {
@@ -65,7 +80,7 @@
         }
     }
 
-    ////////// DIAGONALS
+    ////////// DIAGONAL FUNCTION
 
     function checkForDiagonals() {
         var winningDiagonals = [
@@ -94,8 +109,7 @@
             [22, 27, 32, 37],
             [23, 28, 33, 38],
         ];
-
-        var allSlots = $(".slot");
+        allSlots = $(".slot");
         for (var i = 0; i < winningDiagonals.length; i++) {
             var diagonal = winningDiagonals[i];
             // console.log(diagonal);
@@ -111,26 +125,6 @@
         }
     }
 
-    ////////// CLEAR BUTTON
-    var board = $(".slot");
-    // console.log(board);
-    var clearButton = $(".clear");
-    // console.log(clearButton);
-    var resetOverlay = $(".overlay");
-    console.log(resetOverlay);
-    var showTurn = $(".turn-indicator");
-
-    clearButton.on("click", function () {
-        board.removeClass("player1");
-        board.removeClass("player2"); //
-        resetOverlay.addClass("overlay-on");
-        currentPlayer = "player1"; // always start with player 1
-        showTurn.removeClass("player2-turn");
-        showTurn.addClass("player1-turn");
-        $(".two-turn").removeClass("on");
-        $(".one-turn").addClass("on");
-    });
-
     ////////// DISPLAY PLAYER TURN
     $(".column").on("click", function (e) {
         var col = $(e.currentTarget);
@@ -141,7 +135,7 @@
                 showTurn.addClass("player2-turn");
                 $(".one-turn").removeClass("on");
                 $(".two-turn").addClass("on");
-            }
+            } // FIX BUG (set limit)
             if (slotsInCol.eq(i).hasClass("player2")) {
                 showTurn.removeClass("player2-turn");
                 showTurn.addClass("player1-turn");
@@ -149,10 +143,39 @@
                 $(".one-turn").addClass("on");
             }
         }
+        if (i === -1) {
+            return;
+        }
     });
 
-    ////////// BONUS
-    // players can select their colours?
-    // show score
-    // winner banner
+    ////////// CLEAR BUTTON
+    var board = $(".slot"); // console.log(board);
+    var clearButton = $(".clear"); // console.log(clearButton);
+    var showTurn = $(".turn-indicator"); //console.log(showTurn)
+
+    clearButton.on("click", function () {
+        board.removeClass("player1");
+        board.removeClass("player2"); //
+        currentPlayer = "player1";
+        showTurn.removeClass("player2-turn");
+        showTurn.addClass("player1-turn");
+        $(".two-turn").removeClass("on");
+        $(".one-turn").addClass("on");
+    });
+
+    ////////// GAME OVER MODAL - SHOW WINNER - PLAY AGAIN BUTTON
+    var playAgainButton = $(".play-again");
+    var gameOverlay = $(".overlay");
+
+    playAgainButton.on("click", function (e) {
+        $(e.target).removeClass("play-again-on");
+        gameOverlay.removeClass("modal-on");
+        board.removeClass("player1");
+        board.removeClass("player2");
+        currentPlayer = "player1";
+        showTurn.removeClass("player2-turn");
+        showTurn.addClass("player1-turn");
+        $(".two-turn").removeClass("on");
+        $(".one-turn").addClass("on");
+    });
 })();
