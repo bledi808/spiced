@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(249, 239, 223);
+    margin: 0;
+}
+
+input {
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    height: 5%;
+    width: 20%;
+}
+
+select {
+    position: absolute;
+    top: 5%;
+    left: 24%;
+    height: 5%;
+    width: 8%;
+    font-size: 14px;
+    background-color: lightgray;
+    border: none;
+}
+
+#submit-button {
+    position: absolute;
+    top: 5%;
+    left: 33%;
+    height: 5%;
+    width: 8%;
+    font-size: 14px;
+    background-color: lightgray;
+    border: none;
+    text-align: left;
+}
+
+#results-container {
+    margin-top: 3%;
+    position: absolute;
+    left: 3%;
+    top: 11%;
+    right: 3%;
+    /* height: 80%;
+    width: 40%; */
+    /* border: 1px lightsalmon dashed; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item-separator {
+    width: 300px;
+    height: 300px;
+    /* border: 2px red solid; */
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+
+.item-image {
+    width: 250px;
+    height: 250px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.item-name {
+    font-size: 18px;
+}
+
+#results-text {
+    position: absolute;
+    color: darkred;
+    left: 3%;
+    top: 13%;
+    font-size: 20px;
+}
+
+#no-results {
+    position: absolute;
+    color: darkgrey;
+    left: 3%;
+    top: 10%;
+    font-size: 20px;
+}
+
+#more {
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+    height: 10%;
+    width: 94%;
+    font-size: 14px;
+    visibility: hidden;
+    background-color: lightgray;
+    border: none;
+    border: 2px red solid;
+}
