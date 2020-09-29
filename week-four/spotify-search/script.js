@@ -36,13 +36,18 @@
     });
 
     $(document).on("click", "#more", function () {
+        console.log("next Url:", nextUrl);
         $.ajax({
             url: nextUrl,
             method: "GET",
             success: function (response) {
+                console.log("response log:", response);
                 response = response.artists || response.albums;
                 resultsDiv.append(getResultsHtml(response.items));
                 handleNextUrl(response.next);
+            },
+            error: function (err) {
+                console.log("error:", err);
             },
         });
     });
@@ -70,19 +75,16 @@
         return myHtml;
     }
 
-    nextUrl &&
-        nextUrl.replace(
-            "https://api.spotify.com/v1/search",
-            "https://spicedify.herokuapp.com/spotify"
-        );
     // function to show more button only when a .next property exists for the object
-    function handleNextUrl(nextUrl) {
+    function handleNextUrl(url) {
         var newUrl =
-            nextUrl &&
-            nextUrl.replace(
+            url &&
+            url.replace(
                 "api.spotify.com/v1/search",
                 "spicedify.herokuapp.com/spotify"
             );
+
+        nextUrl = newUrl;
 
         console.log("next URL", nextUrl);
         if (newUrl) {
