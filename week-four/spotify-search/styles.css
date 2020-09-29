@@ -98,7 +98,7 @@ img {
     height: 10%;
     width: 94%;
     font-size: 14px;
-    visibility: hidden;
+    /* visibility: hidden; */
     background-color: lightgray;
     border: none;
     border: 2px red solid;
