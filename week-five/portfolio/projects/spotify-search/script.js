@@ -25,18 +25,20 @@
             },
             success: function (response) {
                 response = response.artists || response.albums;
-                // call functions to compose HTML and show/hide 'more' button
                 resultsDiv.html(getResultsHtml(response.items));
                 resultsMsg.html(resultsMessage(response.items));
                 handleNextUrl(response.next);
-
-                // response.next property indicates there is more than 20 results
+                checkScrollPos();
             }, // closes ajax success property
         });
     });
 
     $(document).on("click", "#more", function () {
-        console.log("next Url:", nextUrl);
+        nextResponse();
+    });
+
+    //function to make sewuential requests to the API for more results
+    function nextResponse() {
         $.ajax({
             url: nextUrl,
             method: "GET",
@@ -45,12 +47,10 @@
                 response = response.artists || response.albums;
                 resultsDiv.append(getResultsHtml(response.items));
                 handleNextUrl(response.next);
-            },
-            error: function (err) {
-                console.log("error:", err);
+                checkScrollPos();
             },
         });
-    });
+    }
 
     // function to generate the html for the search results
     function getResultsHtml(items) {
@@ -75,7 +75,7 @@
         return myHtml;
     }
 
-    // function to show more button only when a .next property exists for the object
+    // function to handle "next" url property of object and show/remove more button based on this property
     function handleNextUrl(url) {
         var newUrl =
             url &&
@@ -89,10 +89,10 @@
         console.log("next URL", nextUrl);
         if (newUrl) {
             moreButton.show();
-            console.log("NEXT NEXT");
+            // console.log("NEXT NEXT");
         } else {
             moreButton.hide();
-            console.log("NO NEXT");
+            // console.log("NO NEXT");
         }
     }
 
@@ -115,5 +115,26 @@
                 "</div>";
         }
         return resultsMsgHtml;
+    }
+
+    // function to: check the scroll position on document and call next response function for more results from API
+    function checkScrollPos() {
+        var hasScrolledToBottom;
+        if (location.search.indexOf("scroll=infinite") >> -1) {
+            // if the url has infinite search configured, remove moreButton
+            moreButton.hide();
+        }
+        if (
+            //determines we have scrolled near the bottom of the page (with a 250px buffer);
+            $(document).scrollTop() + $(window).height() >=
+            $(document).height() - 250
+        ) {
+            hasScrolledToBottom = true;
+        }
+        if (hasScrolledToBottom) {
+            nextResponse();
+        } else {
+            setTimeout(checkScrollPos, 500);
+        }
     }
 })();
