@@ -1,0 +1,46 @@
+[
+    {
+        "title": "canvas 👨🏻‍🎨",
+        "directory": "canvas"
+    },
+    {
+        "title": "carousel 😻",
+        "directory": "carousel"
+    },
+    {
+        "title": "connect 4",
+        "directory": "connect-four"
+    },
+    {
+        "title": "authors 📚",
+        "directory": "handlebars-authors"
+    },
+    {
+        "title": "incremental search 🌍",
+        "directory": "incremental-search"
+    },
+    {
+        "title": "json-validator 🚦",
+        "directory": "json-validator"
+    },
+    {
+        "title": "local storage 📦",
+        "directory": "local-storage"
+    },
+    {
+        "title": "sliding panes 🐈 ",
+        "directory": "sliding-panes"
+    },
+    {
+        "title": "spotify search 🔎",
+        "directory": "spotify-search"
+    },
+    {
+        "title": "ticker 🗞",
+        "directory": "ticker-refactored"
+    },
+    {
+        "title": "website 🌶",
+        "directory": "website-with-modal"
+    }
+]
