@@ -2,23 +2,20 @@
     box-sizing: border-box;
 }
 body {
-    background-color: lightgoldenrodyellow;
+    background-color: #f6f6f6;
     margin: 0;
     height: 100vh;
 }
 
-h2 {
-    margin-top: 5%;
-    margin-right: 5%;
-
-    align-items: right;
-    /* border: 2px black solid; */
+h1 {
+    margin: 3% 5% 0 5%;
+    border-bottom: 1px darkslategray solid;
     text-align: right;
-    /* position: absolute; */
+    color: darkslategray;
 }
 
 .projects {
-    margin-top: 2%;
+    margin-top: 4%;
     margin-left: 1%;
     /* border: 1px black dashed; */
     display: flex;
@@ -30,18 +27,23 @@ h2 {
 
 .item-separator {
     width: 300px;
-    height: 300px;
-    /* border: 2px red solid; */
+    /* height: 300px; */
+    /* border: 1px red solid; */
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
-    /* flex-wrap: wrap; */
 }
 
 .item-image {
     width: 250px;
     height: 250px;
+    /* border: 1px solid darkslategray; */
+    box-shadow: 6px 6px 5px 1px rgba(158, 158, 162, 0.5);
+}
+
+.item-image:hover {
+    /* border: 2px black solid; */
+    filter: hue-rotate(90deg);
 }
 
 img {
@@ -52,7 +54,16 @@ img {
 
 .item-name {
     font-size: 18px;
-    /* border: 2px blue  solid; */
+    /* border: 2px blue solid; */
+    text-decoration: none;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    font-size: larger;
+}
+.item-name:hover {
+    /* border: 2px black solid; */
+    color: blue;
+    text-decoration: underline;
 }
 
 footer {
