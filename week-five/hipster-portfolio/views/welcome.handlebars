@@ -1,13 +1,5 @@
 
     <h1>my portfolio</h1>
     <div class="projects">
-    {{#projectList}}
-            <div class="item-separator">          
-            <div class="item-image">
-                <a href="{{directory}}"><img src="/{{directory}}/thumbnail.png"></a>
-            </div>
-                <a class="item-name" href="{{directory}}">{{title}}</a>
-            </div>
-    {{/projectList}}  
-    </div>  
-    
+    {{>projectList home=true}}
+    </div>

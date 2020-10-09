@@ -9,9 +9,9 @@ body {
 
 h1 {
     margin: 3% 5% 0 5%;
-    border-bottom: 1px darkslategray solid;
+    border-bottom: 1px #383838 solid;
     text-align: right;
-    color: darkslategray;
+    color: #383838;
 }
 
 .projects {
@@ -53,7 +53,7 @@ img {
 }
 
 .item-name {
-    font-size: 18px;
+    /* font-size: 18px; */
     /* border: 2px blue solid; */
     text-decoration: none;
     margin-top: 3%;
@@ -72,4 +72,102 @@ footer {
     margin: 2% 5% 1% 0;
     /* border: 2px blue solid; */
     color: lightslategray;
+}
+/* /////////////////////Desc Page Styling*/
+
+.desc-container {
+    /* border: 1px blue solid; */
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    margin: 0% 5%;
+}
+
+/* ////////////////////NAV BAR STYLING */
+
+.nav {
+    border-right: 1px darkslategray solid;
+    padding-top: 2%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    font-size: larger;
+}
+#desc-nav {
+    margin-right: 2%;
+    margin-bottom: 10%;
+    color: darkred;
+    font-size: x-large;
+}
+
+.nav-projects {
+    /* border-right: 1px solid darkslategray; */
+    text-decoration: none;
+    margin-right: 6%;
+    width: 100%;
+}
+.nav-item {
+    text-decoration: none;
+    margin: 2%;
+    /* border: 1px solid darkslategray; */
+    color: #383838;
+}
+
+#back {
+    margin-right: 2%;
+    margin-top: 10%;
+    font-size: x-large;
+}
+
+#back > a {
+    text-decoration: none; /* no underline */
+    color: navy;
+}
+
+/* //////////////// DESC COMPONENT */
+
+.desc-item-separator {
+    /* width: 300px; */
+    /* height: 300px; */
+    border: 1px red solid;
+    padding-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-self: right;
+    margin-left: 15%;
+    width: 65%;
+}
+
+.desc-item-image {
+    width: 450px;
+    height: 450px;
+    border: 1px solid purple;
+    box-shadow: 6px 6px 5px 1px rgba(158, 158, 162, 0.5);
+}
+
+.desc-item-name {
+    border: 1px solid blue;
+    text-align: right;
+    padding: 2%;
+    margin: 0;
+    font-size: large;
+}
+.button {
+    /* border: 4px solid PINK; */
+    width: 100%;
+    height: 20%;
+    margin: 0;
+
+    /* padding: 1%; */
+}
+button {
+    width: 100%;
+    height: 100%;
+    font-size: x-large;
+    border: none;
+    color: white;
+    background-color: darkgreen;
 }

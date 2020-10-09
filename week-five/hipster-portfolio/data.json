@@ -1,46 +1,57 @@
 [
     {
         "title": "canvas 👨🏻‍🎨",
-        "directory": "canvas"
+        "directory": "canvas",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     },
     {
-        "title": "carousel 😻",
-        "directory": "carousel"
+        "title": "carousel 🐈",
+        "directory": "carousel",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     },
     {
-        "title": "connect 4",
-        "directory": "connect-four"
+        "title": "connect4 🧮",
+        "directory": "connect-four",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     },
     {
         "title": "authors 📚",
-        "directory": "handlebars-authors"
+        "directory": "handlebars-authors",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     },
     {
         "title": "incremental search 🌍",
-        "directory": "incremental-search"
+        "directory": "incremental-search",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     },
     {
         "title": "json validator 🚦",
-        "directory": "json-validator"
+        "directory": "json-validator",
+        "description": "Don't go chasing waterfalls. Please stick to the rivers and the lakes that you're used to. I know that you're gonna have it your way or nothing at all, but I think you're moving too fast..."
     },
     {
         "title": "local storage 📦",
-        "directory": "local-storage"
+        "directory": "local-storage",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     },
     {
-        "title": "sliding panes 🐈 ",
-        "directory": "sliding-panes"
+        "title": "sliding panes 🖼",
+        "directory": "sliding-panes",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     },
     {
         "title": "spotify search 🔎",
-        "directory": "spotify-search"
+        "directory": "spotify-search",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     },
     {
         "title": "ticker 🗞",
-        "directory": "ticker-refactored"
+        "directory": "ticker-refactored",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     },
     {
         "title": "website 🌶",
-        "directory": "website-with-modal"
+        "directory": "website-with-modal",
+        "description": "I am quite proud of this project and I had a really great time working on it."
     }
 ]

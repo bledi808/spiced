@@ -1,0 +1,24 @@
+    {{#selectedProject}}
+    <h1 id="desc-header">{{title}}</h1>
+    {{/selectedProject}} 
+    <div class="desc-container">
+        <div class="nav">
+            <div id="desc-nav">project description >>></div>
+            <div class="nav-projects">{{>projectList}}</div>
+            <div id="back"><a href="/"><<< back to portfolio</a></div>
+        </div>
+        {{!-- <div class="desc-project"> --}}
+            {{#selectedProject}}
+                    <div class="desc-item-separator">          
+                    <div class="desc-item-image">
+                        <a href="{{directory}}"><img src="/{{directory}}/thumbnail.png"></a>
+                    </div>
+                        {{!-- <a class="desc-item-name" href="{{directory}}">{{title}}</a> --}}
+                        <p class="desc-item-name" href="{{directory}}">{{description}}</p>
+                    <div class="button"><button>>>go to project<<</button></div>
+                    </div>
+            {{/selectedProject}}    
+        {{!-- </div>   --}}
+    </div>
+    
+    
