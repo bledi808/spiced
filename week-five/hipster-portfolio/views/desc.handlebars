@@ -6,19 +6,22 @@
             <div id="desc-nav">project description >>></div>
             <div class="nav-projects">{{>projectList}}</div>
             <div id="back"><a href="/"><<< back to portfolio</a></div>
+            {{!-- <div id="back"><a href="/"><<< go to project</a></div> --}}
         </div>
-        {{!-- <div class="desc-project"> --}}
+        <div class="desc-project">
             {{#selectedProject}}
                     <div class="desc-item-separator">          
                     <div class="desc-item-image">
-                        <a href="{{directory}}"><img src="/{{directory}}/thumbnail.png"></a>
+                        <img src="/{{directory}}/thumbnail.png"></a>
                     </div>
                         {{!-- <a class="desc-item-name" href="{{directory}}">{{title}}</a> --}}
+                    <div id="button"><a href="/{{directory}}"> > </br> > </br> ></br> ></br> ></br> ></br> ></br> ><a></div>
+                    </div>
+                    <div class="desc-text">
                         <p class="desc-item-name" href="{{directory}}">{{description}}</p>
-                    <div class="button"><button>>>go to project<<</button></div>
                     </div>
             {{/selectedProject}}    
-        {{!-- </div>   --}}
+        </div>  
     </div>
     
     

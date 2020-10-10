@@ -4,6 +4,23 @@ const handlebars = require("express-handlebars");
 const projectList = require("./data.json");
 // const selectedProject = projectList.find((item) => item.title === project);
 
+const basicAuth = require("basic-auth");
+
+const auth = function (req, res, next) {
+    const creds = basicAuth(req);
+    if (!creds || creds.who != "catsordogs" || creds.pass != "cat") {
+        res.setHeader(
+            "WWW-Authenticate",
+            'Basic realm="Enter your credentials to see this stuff."'
+        );
+        res.sendStatus(401);
+    } else {
+        next();
+    }
+};
+
+// app.use("/projects/carousel", auth);
+
 const setHandlebars = handlebars.create({
     helpers: {
         globalHello() {
