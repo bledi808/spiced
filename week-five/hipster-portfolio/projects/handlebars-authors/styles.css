@@ -1,21 +1,27 @@
 * {
-    background-color: lightcoral;
+    background-color: rgb(189, 178, 178);
 }
 
 .authors-container {
     display: flex;
     flex-direction: row;
     /* border: 2px blue solid; */
+
+    font-family: "roboto", sans-serif;
 }
 
 .name {
     /* border: 2px blue solid; */
     margin: 0;
     text-align: right;
+    color: #383838;
+    font-size: xx-large;
 }
 
 .author-tile {
-    border: 2px gainsboro solid;
+    /* border: 2px #38383820 solid; */
+    box-shadow: 6px 6px 5px 1px rgba(158, 158, 162, 0.5);
+
     margin: 2%;
     padding: 1%;
     width: 400px;
@@ -27,7 +33,7 @@
 .born {
     color: whitesmoke;
     font-size: 24px;
-    background-color: green;
+    background-color: mediumseagreen;
     width: 50%;
     margin: 0;
     text-align: center;
@@ -35,7 +41,7 @@
 .died {
     color: whitesmoke;
     font-size: 24px;
-    background-color: red;
+    background-color: tomato;
     width: 50%;
     margin: 0;
     text-align: center;
@@ -45,13 +51,14 @@
     display: flex;
     flex-direction: row;
     /* border: 2px blue solid; */
-    margin: 0;
+    margin-top: 2px;
 }
 
 .books {
-    color: wheat;
     font-size: 16px;
     /* border: 2px red solid; */
+    font-family: "roboto", sans-serif;
+    color: #383838;
 }
 
 .quote-image {
@@ -61,6 +68,7 @@
     /* border: 2px green solid; */
     margin-top: auto;
     align-items: flex-end;
+    font-size: medium;
 }
 
 #quote {

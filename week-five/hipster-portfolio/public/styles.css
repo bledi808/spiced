@@ -13,6 +13,7 @@ h1 {
     border-bottom: 1px #383838 solid;
     text-align: right;
     color: #383838;
+    font-family: "roboto", sans-serif;
 }
 
 .projects {
@@ -55,6 +56,7 @@ img {
     font-size: larger;
     color: #383838;
     border-right: 2px #f6f6f6 solid;
+    font-family: "roboto", sans-serif;
 }
 
 .item-name:hover {
@@ -68,32 +70,33 @@ footer {
     float: right;
     margin: 2% 5% 1% 0;
     color: lightslategray;
+    font-family: "roboto", sans-serif;
 }
 
-/* /////////////////////Desc Page Styling*/
+/* /////////////////////Description Page Styling///////////////////// */
 
 #desc-header {
-    margin: 1% 10% 0 10%;
+    margin: 1% 5% 0 5%;
     border-bottom: 1px #383838 solid;
     color: #383838;
+    font-family: "roboto", sans-serif;
 }
 
 .desc-container {
-    /* border-bottom: 1px #383838 solid; */
-    width: 75%;
+    /* border: 1px #383838 solid; */
+    /* width: 75%; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* margin: 0% 10%; */
     margin: 0% 13%;
-    /* justify-self: center; */
+    font-family: "roboto", sans-serif;
 }
 
-/* ////////////////////NAV BAR STYLING */
+/* /////////////////////Side-Nav Bar Styling///////////////////// */
 
 .nav {
-    padding-top: 5%;
-    border-right: 1px #383838 solid;
+    padding-top: 4%;
+    /* border-right: 1px #383838 solid; */
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -105,52 +108,53 @@ footer {
 #desc-nav {
     margin-right: 2%;
     margin-bottom: 10%;
-    color: darkred;
-    font-size: x-large;
+    color: darkseagreen;
+    font-size: larger;
 }
 
 .nav-projects {
-    /* border-right: 1px solid darkslategray; */
+    border-right: 1px solid darkslategray;
     text-decoration: none;
-    margin-right: 6%;
+    margin-right: 8%;
     width: 100%;
     margin-top: 5%;
+    /* padding-bottom: 2px; */
 }
 .nav-item {
     text-decoration: none;
     margin: 2%;
     /* border: 1px solid darkslategray; */
     color: #383838;
-    padding: 1% 1% 0 2%;
+    padding: 0% 1% 1% 2%;
+    /* border-right: 1px solid darkslategray; */
 }
 
 .nav-item:hover {
-    /* border: 2px black solid; */
     color: white;
     background-color: mediumseagreen;
     opacity: 0.6;
-
-    /* border-bottom: 2px #383838 solid; */
 }
 
 #back {
     margin-right: 2%;
-    margin-top: 22%;
-    font-size: x-large;
+    margin-top: 25%;
+    font-size: larger;
 }
 
 #back > a:hover {
     /* border: 2px black solid; */
     color: darkred;
+    opacity: 1;
     /* text-decoration: underline; */
 }
 
 #back > a {
     text-decoration: none; /* no underline */
-    color: navy;
+    color: darkred;
+    opacity: 0.7;
 }
 
-/* //////////////// DESC COMPONENT */
+/* /////////////////////Description Item Container///////////////////// */
 
 .desc-item-separator {
     /* border: 1px red solid; */
@@ -168,19 +172,16 @@ footer {
 }
 
 .description {
-    /* border-left: 1px solid purple; */
+    /* border: 1px solid purple; */
     text-align: justify;
-    padding: 1% 0%;
+    padding: 2% 0%;
     margin: 0;
     margin-top: 1%;
     font-size: large;
     width: 550px;
     margin-left: 14%;
     color: #383838;
-    /* background-color: wheat; */
-    /* box-shadow: 6px 6px 5px 1px rgba(158, 158, 162, 0.5); */
-    opacity: 0.7;
-    min-height: 40px;
+    /* min-height: 40px; */
 }
 
 #button {
@@ -188,7 +189,6 @@ footer {
     padding-top: 2%;
     width: 8%;
     height: 500px;
-    /* border: 1px rgba(158, 158, 162, 0.4) solid; */
     box-shadow: 6px 6px 5px 1px rgba(158, 158, 162, 0.5);
 }
 
@@ -198,11 +198,6 @@ footer {
     font-size: 45px;
     opacity: 0.2;
 }
-
-/* #button:hover {
-    border: 1px mediumseagreen solid;
-    transition: 1s;
-} */
 
 #button > a:hover {
     color: mediumseagreen;
