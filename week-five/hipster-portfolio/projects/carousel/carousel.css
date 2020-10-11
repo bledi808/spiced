@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: rgb(133, 192, 188);
 }
 
 .container {
@@ -7,9 +8,10 @@ body {
     width: 600px;
     overflow: hidden;
     position: relative;
-    border: 2px red solid;
+    border: 4px whitesmoke solid;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 2.5%;
 }
 
 .container img {
@@ -44,12 +46,12 @@ body {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 2px red solid;
+    border: 2px whitesmoke solid;
     margin: 0 4px 0;
     /* position: relative; */
 }
 
 .on {
-    background-color: red;
+    background-color: whitesmoke;
     transition: 3s;
 }

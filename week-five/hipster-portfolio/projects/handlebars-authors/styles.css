@@ -1,17 +1,14 @@
-* {
-    background-color: rgb(189, 178, 178);
+body {
+    background-color: whitesmoke;
 }
 
 .authors-container {
     display: flex;
     flex-direction: row;
-    /* border: 2px blue solid; */
-
     font-family: "roboto", sans-serif;
 }
 
 .name {
-    /* border: 2px blue solid; */
     margin: 0;
     text-align: right;
     color: #383838;
@@ -19,8 +16,9 @@
 }
 
 .author-tile {
-    /* border: 2px #38383820 solid; */
-    box-shadow: 6px 6px 5px 1px rgba(158, 158, 162, 0.5);
+    box-shadow: 6px 6px 5px 1px rgba(158, 158, 162, 0.9);
+    background-color: rgba(189, 178, 178, 0.7);
+    /* border-radius: 20px; */
 
     margin: 2%;
     padding: 1%;
@@ -55,10 +53,9 @@
 }
 
 .books {
-    font-size: 16px;
-    /* border: 2px red solid; */
-    font-family: "roboto", sans-serif;
     color: #383838;
+    /* text-align: center; */
+    margin-left: 5%;
 }
 
 .quote-image {
@@ -75,10 +72,12 @@
     /* border: 2px blue solid; */
     font-style: italic;
     margin: 0;
+    padding-right: 3%;
+    text-align: justify;
+    font-size: small;
 }
 
 img {
     height: 125px;
     width: auto;
-    /* border: 2px blue solid; */
 }
