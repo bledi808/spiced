@@ -62,15 +62,15 @@
                 imgUrl = items[i].images[0].url;
             }
             myHtml +=
-                "<div class='item-separator'><p class='item-name'><a href='" +
-                items[i].external_urls.spotify +
-                "'>" +
-                items[i].name +
-                "</a><a href='" +
+                "<div class='item-separator'><a href='" +
                 items[i].external_urls.spotify +
                 "'><div class='item-image'><img src='" +
                 imgUrl +
-                "'></a></p></div></div>";
+                "'></a><p class='item-name'><a href='" +
+                items[i].external_urls.spotify +
+                "'>" +
+                items[i].name +
+                "</a></p></div></div>";
         }
         return myHtml;
     }
