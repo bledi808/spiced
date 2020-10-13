@@ -1,7 +1,7 @@
 const { Key, Secret } = require("./secrets.json");
 const https = require("https");
 
-module.exports.getToken = function (callback) {
+module.exports.getToken = function () {
     //this functon will get the token from twitter
     let creds = `${Key}:${Secret}`;
     let encodedCreds = Buffer.from(creds).toString("base64");
@@ -11,7 +11,7 @@ module.exports.getToken = function (callback) {
         path: "/oauth2/token",
         headers: {
             Authorization: `Basic  ${encodedCreds}`,
-            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-2",
         },
     };
 
@@ -36,17 +36,14 @@ module.exports.getToken = function (callback) {
     });
 };
 
-module.exports.getTweets = function (bearerToken, callback) {
+module.exports.getTweets = function (token, screenName) {
     //this functon will get the tweets from twitter
-    // let creds = `${Key}:${Secret}`;
-    // let encodedCreds = Buffer.from(creds).toString("base64");
     const options = {
         method: "GET",
         host: "api.twitter.com",
-        path:
-            "/1.1/statuses/user_timeline.json?screen_name=nytimes&tweet_mode=extended",
+        path: `/1.1/statuses/user_timeline.json?screen_name=${screenName}&tweet_mode=extended`,
         headers: {
-            Authorization: `Bearer ${bearerToken}`,
+            Authorization: `Bearer ${token}`,
         },
     };
 
@@ -61,14 +58,13 @@ module.exports.getTweets = function (bearerToken, callback) {
                 body += chunk;
             });
             response.on("end", () => {
-                // console.log("getTweets: body", body);
                 let parsedBody = JSON.parse(body);
                 // console.log("getTweets: parsedBody", parsedBody);
                 resolve(parsedBody); // null = falsie; required to pass the if block that cataches error
             });
         }
         const req = https.request(options, cb);
-        req.end("grant_type=client_credentials");
+        req.end();
     });
 };
 
@@ -79,7 +75,11 @@ module.exports.filterTweets = function (tweets) {
     // console.log("newArray:", newArray);
     for (let i = 0; i < newArray.length; i++) {
         let myObj = {};
-        myObj.headline = newArray[i].full_text.split(" http")[0];
+        let userHandle = newArray[i].user.name;
+        let timestamp = newArray[i].created_at;
+        myObj.headline = `[${userHandle}] [${timestamp.split(" +")[0]}] ${
+            newArray[i].full_text.split(" http")[0]
+        }`;
         myObj.href = newArray[i].entities.urls[0].url;
         returnedArray.push(myObj);
     }
