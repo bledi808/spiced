@@ -11,7 +11,7 @@ body {
 span {
     position: absolute;
     top: 2%;
-    left: 3%;
+    left: 1%;
     height: 4%;
     z-index: 2;
     font-size: 50px;
@@ -22,21 +22,22 @@ span {
 input {
     position: absolute;
     top: 5%;
-    left: 7%;
+    left: 5%;
     height: 4%;
     width: 16%;
+    margin-right: ;
     /* background-color: rgba(0, 0, 0, 0.2); */
     border-radius: 5px;
     color: #383838;
     font-family: "roboto", sans-serif;
-    font-size: large;
+    font-size: medium;
     border: 1px #383838 solid;
 }
 
 select {
     position: absolute;
     top: 5%;
-    left: 24%;
+    left: 22%;
     height: 4%;
     width: 6%;
     background-color: rgba(0, 0, 0, 0.6);
@@ -44,15 +45,15 @@ select {
     color: whitesmoke;
     text-align: center;
     font-family: "roboto", sans-serif;
-    font-size: large;
-    padding-left: 10px;
+    font-size: medium;
+    padding-left: 8px;
     border: 1px #383838 solid;
 }
 
 #submit-button {
     position: absolute;
     top: 5%;
-    left: 31%;
+    left: 29%;
     height: 4%;
     width: 6%;
     background-color: rgba(0, 0, 0, 0.6);
@@ -60,15 +61,15 @@ select {
     color: whitesmoke;
     text-align: center;
     font-family: "roboto", sans-serif;
-    font-size: large;
+    font-size: medium;
 }
 
 #results-container {
     margin-top: 5%;
     position: absolute;
-    left: 7%;
+    left: 5%;
     top: 11%;
-    right: 3%;
+    /* right: 3%; */
     /* margin-bottom: 5%; */
     /* border: 1px black dashed; */
     display: flex;
@@ -129,7 +130,7 @@ p {
 #results-text {
     position: absolute;
     color: #383838;
-    left: 7%;
+    left: 5%;
     top: 13%;
     font-size: 20px;
     font-family: "roboto", sans-serif;
@@ -146,7 +147,7 @@ p {
 
 #more {
     position: fixed;
-    left: 7%;
+    left: 5%;
     height: 5%;
     width: 40%;
     bottom: 0%;

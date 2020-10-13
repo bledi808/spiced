@@ -18,13 +18,13 @@ const auth = function (req, res, next) {
     }
 };
 
-// const setHandlebars = handlebars.create({
-//     helpers: {
-//         globalHello() {
-//             // return "hello back";declare global helpers here
-//         },
-//     },
-// });
+const setHandlebars = handlebars.create({
+    helpers: {
+        globalHello() {
+            // return "hello back";declare global helpers here
+        },
+    },
+});
 
 //////////////////// middleware ////////////////////
 
