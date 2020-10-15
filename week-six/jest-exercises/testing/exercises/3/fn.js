@@ -4,10 +4,6 @@ module.exports = function fn(arg) {
     } else if (typeof arg === "string") {
         return arg.split("").reverse().join("");
     } else if (Array.isArray(arg)) {
-        //INCOMPLETE
-        // const newArray = arg.map((arg, num) => arg[0].reverse().join(""));
-        // return newArray;
-        // return arg.reverse().join("");
         let returnedArray = [];
         for (let i = 0; i < arg.length; i++) {
             // if (typeof arg[i] === "string") {
