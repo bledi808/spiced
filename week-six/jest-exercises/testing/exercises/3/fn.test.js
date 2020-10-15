@@ -1,6 +1,4 @@
 const fn = require("./fn");
-fn("hello");
-fn("h", "e", "l");
 
 test("a string as first argument", () => {
     expect(fn("Funky Chicken")).toBe("nekcihC yknuF");
